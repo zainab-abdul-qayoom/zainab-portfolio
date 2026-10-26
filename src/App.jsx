@@ -1,18 +1,38 @@
 
 import React from 'react';
-import {
-  ArrowDownRight,
-  ArrowUpRight,
-  Github,
-  Mail,
-  MapPin,
-  Menu,
-  Code2,
-  Users,
-  Lightbulb,
-  Sparkles,
-  X
-} from 'lucide-react';
+
+// Local icons: no external icon-library imports needed.
+function Glyph({ children, size = 16 }) {
+  return (
+    <span
+      aria-hidden="true"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexShrink: 0,
+        fontSize: size,
+        lineHeight: 1,
+        fontWeight: 600,
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
+const ArrowDownRight = (props) => <Glyph {...props}>↘</Glyph>;
+const ArrowUpRight = (props) => <Glyph {...props}>↗</Glyph>;
+const Github = (props) => <Glyph {...props}>GH</Glyph>;
+const Linkedin = (props) => <Glyph {...props}>in</Glyph>;
+const Mail = (props) => <Glyph {...props}>✉</Glyph>;
+const MapPin = (props) => <Glyph {...props}>●</Glyph>;
+const Menu = (props) => <Glyph {...props}>☰</Glyph>;
+const Code2 = (props) => <Glyph {...props}>{'</>'}</Glyph>;
+const Users = (props) => <Glyph {...props}>♧</Glyph>;
+const Lightbulb = (props) => <Glyph {...props}>✦</Glyph>;
+const Sparkles = (props) => <Glyph {...props}>✧</Glyph>;
+const X = (props) => <Glyph {...props}>×</Glyph>;
 
 const profile = {
   name: 'Zainab Abdul Qayoom',
@@ -28,7 +48,8 @@ const projects = [
     number: '01',
     name: 'CampusLoop',
     type: 'Student Community Platform',
-    description: 'A student-focused platform concept for sharing skills, discovering campus gigs, and connecting students with opportunities.',
+    description:
+      'A student-focused platform concept for sharing skills, discovering campus gigs, and connecting students with opportunities.',
     stack: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'SQLite'],
     mark: 'CL',
     className: 'peach',
@@ -37,7 +58,8 @@ const projects = [
     number: '02',
     name: 'MUET Point Tracker',
     type: 'Campus Mobility',
-    description: 'A campus transport experience concept featuring routes, estimated arrival information, and service alerts.',
+    description:
+      'A campus transport experience concept featuring routes, estimated arrival information, and service alerts.',
     stack: ['React', 'Node.js', 'SQLite', 'Leaflet', 'OpenStreetMap'],
     mark: '↗',
     className: 'lavender',
@@ -46,7 +68,8 @@ const projects = [
     number: '03',
     name: 'AI Notes Summarizer',
     type: 'AI / Productivity',
-    description: 'A tool designed to turn study notes into more digestible summaries using a language model API.',
+    description:
+      'A tool designed to turn study notes into more digestible summaries using a language model API.',
     stack: ['Python', 'Streamlit', 'Groq API', 'Llama 3'],
     mark: '✳',
     className: 'lime',
@@ -55,7 +78,8 @@ const projects = [
     number: '04',
     name: 'Chez Gourmet Smart Canteen',
     type: 'Web Application',
-    description: 'A smart canteen ordering concept focused on QR-based ordering and smoother queue management.',
+    description:
+      'A smart canteen ordering concept focused on QR-based ordering and smoother queue management.',
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
     mark: 'CG',
     className: 'blue',
@@ -64,7 +88,8 @@ const projects = [
     number: '05',
     name: 'Harvard CS50x Expense Tracker',
     type: 'Learning Project',
-    description: 'A personal finance tracker built while practicing backend fundamentals, data persistence, and web application structure.',
+    description:
+      'A personal finance tracker built while practicing backend fundamentals, data persistence, and web application structure.',
     stack: ['Python', 'Flask', 'SQLite'],
     mark: '$',
     className: 'yellow',
@@ -73,7 +98,8 @@ const projects = [
     number: '06',
     name: 'PyFlow Code-to-Flowchart',
     type: 'AI / Developer Tools',
-    description: 'An AI-assisted concept exploring how code can be represented as a visual flowchart to support understanding.',
+    description:
+      'An AI-assisted concept exploring how code can be represented as a visual flowchart to support understanding.',
     stack: ['Python', 'AI APIs', 'Prompt Engineering'],
     mark: '⌘',
     className: 'pink',
@@ -126,10 +152,30 @@ const experiences = [
 ];
 
 const awards = [
-  ['01', 'Top Performer', 'NCEAC–HEC Generative AI Application Developer Program', '2026'],
-  ['02', 'Best Performer — Entrepreneurship', 'D3 Digital Dream Dynamo · Entrepreneurship Blueprint Training', '2026'],
-  ['03', '1st Place — E-poster Competition', 'Strategic Youth Paradigm · NUMS', '2026'],
-  ['04', 'Certificate of Recognition', 'IEEE Smart Cities & IEEE ComSoc event hosting', '2026'],
+  [
+    '01',
+    'Top Performer',
+    'NCEAC–HEC Generative AI Application Developer Program',
+    '2026',
+  ],
+  [
+    '02',
+    'Best Performer — Entrepreneurship',
+    'D3 Digital Dream Dynamo · Entrepreneurship Blueprint Training',
+    '2026',
+  ],
+  [
+    '03',
+    '1st Place — E-poster Competition',
+    'Strategic Youth Paradigm · NUMS',
+    '2026',
+  ],
+  [
+    '04',
+    'Certificate of Recognition',
+    'IEEE Smart Cities & IEEE ComSoc event hosting',
+    '2026',
+  ],
 ];
 
 function SectionLabel({ children }) {
@@ -143,6 +189,7 @@ function SectionLabel({ children }) {
 
 function Header() {
   const [open, setOpen] = React.useState(false);
+
   const links = [
     ['About', '#about'],
     ['Work', '#work'],
@@ -192,11 +239,12 @@ function App() {
           <div className="hero-copy">
             <div className="availability">
               <span className="pulse" />
-              OPEN TO LEARNING & COLLABORATION
+              OPEN TO LEARNING &amp; COLLABORATION
             </div>
 
             <h1>
-              Building with<br />
+              Building with
+              <br />
               <span>curiosity.</span>
               <br />
               Leading with purpose.
@@ -218,7 +266,10 @@ function App() {
             </div>
 
             <div className="hero-meta">
-              <span><MapPin size={14} />{profile.location}</span>
+              <span>
+                <MapPin size={14} />
+                {profile.location}
+              </span>
               <span className="meta-divider" />
               <span>MUET · Class of 2029</span>
             </div>
@@ -241,7 +292,9 @@ function App() {
               <Users size={17} />
               <span>people first</span>
             </div>
-            <div className="art-monogram">Z<span>A</span></div>
+            <div className="art-monogram">
+              Z<span>A</span>
+            </div>
             <div className="art-bottomline">
               <span>TECH + PEOPLE</span>
               <span>01 / 04</span>
@@ -258,8 +311,10 @@ function App() {
             <div>
               <SectionLabel>01 / A LITTLE ABOUT ME</SectionLabel>
               <h2>
-                Curious by nature.<br />
-                <em>Community-minded</em><br />
+                Curious by nature.
+                <br />
+                <em>Community-minded</em>
+                <br />
                 by choice.
               </h2>
             </div>
@@ -270,6 +325,7 @@ function App() {
                 Engineering and Technology (MUET), where I’m learning to turn
                 ideas into useful digital experiences.
               </p>
+
               <p>
                 Beyond code, I enjoy bringing people together around learning,
                 entrepreneurship, and technology. Through student clubs,
@@ -280,17 +336,25 @@ function App() {
 
               <div className="values-grid">
                 <div className="value-card">
-                  <span className="value-icon"><Code2 size={19} /></span>
+                  <span className="value-icon">
+                    <Code2 size={19} />
+                  </span>
                   <b>Build</b>
                   <small>Thoughtful digital experiences</small>
                 </div>
+
                 <div className="value-card">
-                  <span className="value-icon"><Users size={19} /></span>
+                  <span className="value-icon">
+                    <Users size={19} />
+                  </span>
                   <b>Connect</b>
                   <small>People, ideas, opportunities</small>
                 </div>
+
                 <div className="value-card">
-                  <span className="value-icon"><Lightbulb size={19} /></span>
+                  <span className="value-icon">
+                    <Lightbulb size={19} />
+                  </span>
                   <b>Explore</b>
                   <small>New tools and possibilities</small>
                 </div>
@@ -305,7 +369,8 @@ function App() {
               <div>
                 <SectionLabel>02 / SELECTED PROJECTS</SectionLabel>
                 <h2>
-                  Things I’ve been<br />
+                  Things I’ve been
+                  <br />
                   <em>working on.</em>
                 </h2>
               </div>
@@ -320,7 +385,9 @@ function App() {
               {projects.map((p) => (
                 <article className="project-card" key={p.number}>
                   <div className={`project-visual ${p.className}`}>
-                    <span className="project-number">{p.number} / PROJECT</span>
+                    <span className="project-number">
+                      {p.number} / PROJECT
+                    </span>
                     <div className="project-mark">{p.mark}</div>
                     <span className="project-type">{p.type}</span>
                   </div>
@@ -334,7 +401,9 @@ function App() {
                     </div>
                     <p>{p.description}</p>
                     <div className="stack">
-                      {p.stack.map((s) => <span key={s}>{s}</span>)}
+                      {p.stack.map((s) => (
+                        <span key={s}>{s}</span>
+                      ))}
                     </div>
                   </div>
                 </article>
@@ -357,7 +426,8 @@ function App() {
               <div>
                 <SectionLabel>03 / EXPERIENCE</SectionLabel>
                 <h2>
-                  Learning by<br />
+                  Learning by
+                  <br />
                   <em>showing up.</em>
                 </h2>
               </div>
@@ -389,7 +459,8 @@ function App() {
             <div>
               <SectionLabel>04 / RECOGNITION</SectionLabel>
               <h2>
-                Small wins.<br />
+                Small wins.
+                <br />
                 <em>Big motivation.</em>
               </h2>
               <p className="recognition-intro">
@@ -432,7 +503,9 @@ function App() {
                 'AI APIs',
                 'Figma / Canva',
                 'Photoshop',
-              ].map((s) => <span key={s}>{s}</span>)}
+              ].map((s) => (
+                <span key={s}>{s}</span>
+              ))}
             </div>
           </div>
         </section>
@@ -442,7 +515,8 @@ function App() {
             <div className="contact-orbit">✳</div>
             <SectionLabel>05 / WHAT’S NEXT?</SectionLabel>
             <h2>
-              Have an idea?<br />
+              Have an idea?
+              <br />
               <em>Let’s make it happen.</em>
             </h2>
             <p>
@@ -463,13 +537,7 @@ function App() {
                 <Github size={17} /> GitHub <ArrowUpRight size={13} />
               </a>
               <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                <span
-                  aria-hidden="true"
-                  style={{ fontWeight: 700, fontSize: 14 }}
-                >
-                  in
-                </span>
-                LinkedIn <ArrowUpRight size={13} />
+                <Linkedin size={17} /> LinkedIn <ArrowUpRight size={13} />
               </a>
               <a href={`mailto:${profile.email}`}>
                 <Mail size={17} /> Email <ArrowUpRight size={13} />
@@ -481,7 +549,9 @@ function App() {
 
       <footer className="footer">
         <div className="container footer-inner">
-          <a className="wordmark" href="#home">ZA<span>.</span></a>
+          <a className="wordmark" href="#home">
+            ZA<span>.</span>
+          </a>
           <span>Made with curiosity, in Pakistan.</span>
           <a href="#home">Back to top ↑</a>
         </div>
